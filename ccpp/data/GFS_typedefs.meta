@@ -2791,6 +2791,30 @@
   units = flag
   dimensions = ()
   type = logical
+[do_wamphys]
+  standard_name = flag_for_wamphys_2022
+  long_name = flag to activate version 1 of wamphys_2022
+  units = flag
+  dimensions = ()
+  type = logical
+[do_wamipe]
+  standard_name = flag_for_wamipe_physics_coupling
+  long_name = flag for wam-ipe physics coupling
+  units = flag
+  dimensions = ()
+  type = logical
+[do_wamgfs_rad]
+  standard_name = flag_for_wamgfs_radiation_merge
+  long_name = flag for merging wam and gfs total radiation
+  units = flag
+  dimensions = ()
+  type = logical
+[do_wamphys_diag]
+  standard_name = flag_for_wam_physics_diagnostics
+  long_name = flag for wam physics diagnostics in wamphys_post.F90
+  units = flag
+  dimensions = ()
+  type = logical   
 [fhcyc]
   standard_name = frequency_for_surface_cycling_calls
   long_name = frequency for surface cycling calls
@@ -5097,6 +5121,18 @@
   units = index
   dimensions = ()
   type = integer
+[nto2]
+  standard_name = index_of_moxygen_mixing_ratio_in_tracer_concentration_array
+  long_name = tracer index for molecular oxygen mass mixing ratio
+  units = index
+  dimensions = ()
+  type = integer
+[nto1]
+  standard_name = index_of_aoxygen_mixing_ratio_in_tracer_concentration_array
+  long_name = tracer index for atomic oxygen mass mixing ratio
+  units = index
+  dimensions = ()
+  type = integer   
 [ntcw]
   standard_name = index_of_cloud_liquid_water_mixing_ratio_in_tracer_concentration_array
   long_name = tracer index for cloud condensate (or liquid water)
@@ -7933,7 +7969,46 @@
   dimensions = (horizontal_loop_extent)
   type = real
   kind = kind_phys
-
+[dudt_wamph]
+  standard_name = tav_momentum_tendency_in_x_wind_due_to_wam_physics
+  long_name = time averaged zonal wind momentum tendency due to wam physics
+  units = m s-2
+  dimensions = (horizontal_loop_extent,vertical_layer_dimension)
+  type = real
+  kind = kind_phys
+  active = (do_wamphys)
+[dvdt_wamph]
+  standard_name = tav_momentum_tendency_in_y_wind_due_to_wam_physics
+  long_name = time averaged meridional wind momentum tendency due to wam physics
+  units = m s-2
+  dimensions = (horizontal_loop_extent,vertical_layer_dimension)
+  type = real
+  kind = kind_phys
+  active = (do_wamphys)  
+[dtdt_wamph]
+  standard_name = tav_temperature_tendency_due_to_wam_physics
+  long_name = time averaged temperature tendency due to wam physics
+  units = K s-1
+  dimensions = (horizontal_loop_extent,vertical_layer_dimension)
+  type = real
+  kind = kind_phys
+  active = (do_wamphys)
+[do1dt_wamph]
+  standard_name = tav_atomic_oxygen_tendency_due_to_wam_physics
+  long_name = time averaged atomic_oxygen tendency due to wam physics
+  units = mmr s-1
+  dimensions = (horizontal_loop_extent,vertical_layer_dimension)
+  type = real
+  kind = kind_phys
+  active = (do_wamphys)
+[do2dt_wamph]
+  standard_name = tav_molecular_oxygen_tendency_due_to_wam_physics
+  long_name = time averaged molecular oxygen tendency due to wam physics
+  units = mmr s-1
+  dimensions = (horizontal_loop_extent,vertical_layer_dimension)
+  type = real
+  kind = kind_phys
+  active = (do_wamphys)   
 ########################################################################
 [ccpp-table-properties]
   name = GFS_data_type
