@@ -1336,11 +1336,6 @@ module GFS_typedefs
     real(kind=kind_phys) :: rhcmax          ! maximum critical relative humidity, replaces rhc_max in physcons.F90
     real(kind=kind_phys) :: huge            !< huge fill value
 
-
-    real(kind=kind_phys) :: csw_f107,  csw_f107d, csw_kp,    csw_kpa  
-    real(kind=kind_phys) :: csw_nhp,   csw_nhpi,  csw_shp,   csw_shpi, csw_den, csw_ang 
-    real(kind=kind_phys) :: csw_bz,    csw_bt,    csw_vel     
-    integer              :: sw_ktprev 
     contains
       procedure :: init            => control_initialize
       procedure :: init_chemistry  => control_chemistry_initialize
@@ -1734,17 +1729,6 @@ module GFS_typedefs
      real (kind=kind_phys), pointer      :: dtdt_iwamph(:,:)                => null()  !< WAM-tend instant 
      real (kind=kind_phys), pointer      :: do1dt_iwamph(:,:)               => null()  !< WAM-tend instant  
      real (kind=kind_phys), pointer      :: do2dt_iwamph(:,:)               => null()  !< WAM-tend instant
-     real (kind=kind_phys), pointer      :: dqdt_iwamph(:,:)                => null()  !< WAM-tend instant
-     real (kind=kind_phys), pointer      :: zmt_ipe(:,:)                    => null()  !< WAM-IPE
-     real (kind=kind_phys), pointer      :: mmt_ipe(:,:)                    => null()  !< WAM-IPE  
-     real (kind=kind_phys), pointer      :: jhr_ipe(:,:)                    => null()  !< WAM-IPE             
-     real (kind=kind_phys), pointer      :: shr_ipe(:,:)                    => null()  !< WAM-IPE
-     real (kind=kind_phys), pointer      :: o2dr_ipe(:,:)                   => null()  !< WAM-IPE 
-     
-!     real(kind=kind_phys) :: csw_f107,  csw_f107d, csw_kp,    csw_kpa  
-!     real(kind=kind_phys) :: csw_nhp,   csw_nhpi,  csw_shp,   csw_shpi, csw_den, csw_ang 
-!     real(kind=kind_phys) :: csw_bz,    csw_bt,    csw_vel     
-!     integer              :: sw_ktprev                 
 #endif 
 
 !
@@ -3651,29 +3635,7 @@ module GFS_typedefs
 !      Model%wam_Gw_fix     = wam_gw_fix
 !      Model%wam_tiros_activity_fix =  wam_tiros_activity_fix  
 !???   Model%weimer_model     = weimer_model 
-
-
-! 16 csw_f107, csw_f107d,  csw_kp, csw_kpa, csw_ap, csw_apa  
-!!!    csw_nhp,  csw_nhpi,  csw_shp,   csw_shpi, csw_den, csw_ang 
-!!!      csw_bz,   csw_bt,    csw_vel,   csw_time  	
-!!!!!!  CONSTANTS !!!!!!!!!!!!!!!!!!!
-       Model%csw_f107 = 100.  
-       Model%csw_f107d = 100. 
-       Model%csw_kp = 3.  
-       Model%csw_kpa = 3.
-!       Model%csw_ap = 100.
-!       Model%csw_apa = 100.
-       Model%csw_nhp = 20.
-       Model%csw_nhpi = 6.
-       Model%csw_shp = 20.
-       Model%csw_shpi = 5.
-       Model%csw_den = 6.
-       Model%csw_ang = 220.
-       Model%csw_bz = -1.
-       Model%csw_bt = 6.
-       Model%csw_vel = 450.
-!       Model%csw_time = 100.
-                             			             
+                   			             
     else 
       print *,' do_wamphys => .false., stop'    
       stop   ! mpi-stop  
@@ -5936,7 +5898,7 @@ module GFS_typedefs
       print *, ' restart           : ', Model%restart
       print *, ' lsm_cold_start    : ', Model%lsm_cold_start
       print *, ' hydrostatic       : ', Model%hydrostatic
-   
+    endif
     if (Model%do_wamphys) then
       print *, ' WAM physics: control and tunable parameters ' 
       print *, ' do_wamgfs_rad     : ', Model%do_wamgfs_rad 
@@ -5961,7 +5923,7 @@ module GFS_typedefs
 !      print *, '      Model%wam_kp_fix     = wam_kp_fix
 !      print *, '      Model%wam_Gw_fix     = wam_gw_fix               
       endif
-    endif  
+      
   end subroutine control_print
 
 
@@ -6680,13 +6642,7 @@ module GFS_typedefs
      allocate(Diag%dvdt_iwamph(IM,Model%levs)  ) 
      allocate(Diag%dtdt_iwamph(IM,Model%levs)  )   
      allocate(Diag%do1dt_iwamph(IM,Model%levs)  )  
-     allocate(Diag%do2dt_iwamph(IM,Model%levs)  ) 
-     allocate(Diag%dqdt_iwamph(IM,Model%levs)  ) 
-     allocate(Diag%zmt_ipe(IM,Model%levs)  )
-     allocate(Diag%mmt_ipe(IM,Model%levs)  )  
-     allocate(Diag%jhr_ipe(IM,Model%levs)  ) 
-     allocate(Diag%shr_ipe(IM,Model%levs)  )
-     allocate(Diag%o2dr_ipe(IM,Model%levs)  )                                                  
+     allocate(Diag%do2dt_iwamph(IM,Model%levs)  )                     
     endif      
 #endif
     if (Model%ldiag_ugwp) then

@@ -2814,107 +2814,7 @@
   long_name = flag for wam physics diagnostics in wamphys_post.F90
   units = flag
   dimensions = ()
-  type = logical
-[csw_f107]
-  standard_name = current_timestep_value_of_10_7cm_solar_flux
-  units = W m-2
-  type = real 
-  kind = kind_phys
-  dimensions = ()
-[csw_f107d]
-  standard_name = current_timestep_value_of_41_day_averaged_10_7cm_solar_flux
-  units = W m-2
-  type = real
-  kind = kind_phys
-  dimensions = () 
-[csw_kp]
-  standard_name = current_timestep_value_of_planetary_3_hour_geomagnetic_activity
-  units = count
-  type = real 
-  kind = kind_phys
-  dimensions = ()
-[csw_kpa]
-  standard_name = current_timestep_value_of_average_of_the_previous_8_planetary_3_hour_geomagnetic_activity
-  units = count 
-  type = real 
-  kind = kind_phys
-  dimensions = ()
-[csw_ap]
-  standard_name = current_timestep_value_of_planetary_3_hour_geomagnetic_activity_index 
-  units = count
-  type = real 
-  kind = kind_phys
-  dimensions = ()
-[csw_apa]
-  standard_name = current_timestep_value_of_average_of_the_previous_8_planetary_3_hour_geomagnetic_activity_indices
-  units = count
-  type = real 
-  kind = kind_phys
-  dimensions = ()
-[csw_nhp]
-  standard_name = current_timestep_value_of_northern_hemispheric_auroral_power
-  units = GW
-  type = real 
-  kind = kind_phys
-  dimensions = ()
-[csw_nhpi]
-  standard_name = current_timestep_value_of_northern_hemispheric_auroral_power_index
-  units = count
-  type = real
-  kind = kind_phys
-  dimensions = ()
-[csw_shp]
-  standard_name = current_timestep_value_of_southern_hemispheric_auroral_power
-  units = GW
-  type = real 
-  kind = kind_phys
-  dimensions = ()
-[csw_shpi]
-  standard_name = current_timestep_value_of_southern_hemispheric_auroral_power_index
-  units = count
-  type = real
-  kind = kind_phys
-  dimensions = ()
-[csw_den]
-  standard_name = current_timestep_value_of_solar_wind_density
-  units = cm-3
-  type = real
-  kind = kind_phys
-  dimensions = ()
-[csw_ang]
-  standard_name = current_timestep_value_of_solar_wind_interplanetary_magnetic_field_angle_arctan_BzBy
-  units = degree
-  type = real 
-  kind = kind_phys
-  dimensions = ()
-[csw_bz]
-  standard_name = current_timestep_value_of_northward_solar_wind_interplanetary_magnetic_field
-  units = nT
-  type = real 
-  kind = kind_phys
-  dimensions = ()
-[csw_bt]
-  standard_name = current_timestep_value_of_total_solar_wind_interplanetary_magnetic_field
-  units = nT
-  type = real
-  kind = kind_phys
-  dimensions = ()
-[csw_vel]
-  standard_name = current_timestep_value_of_Earthward_solar_wind_velocity
-  units = km s-1
-  type = real 
-  kind = kind_phys
-  dimensions = ()
-[csw_time]
-  standard_name = current_value_of_time
-  units = seconds
-  type = real 
-  dimensions = ()  
-[sw_ktprev]
-  standard_name = previous_time_step_number
-  units = count
-  type = integer
-  dimensions = ()      
+  type = logical   
 [fhcyc]
   standard_name = frequency_for_surface_cycling_calls
   long_name = frequency for surface cycling calls
@@ -7701,7 +7601,123 @@
   type = real 
   kind = kind_phys
   dimensions = (horizontal_loop_extent, vertical_layer_dimension)
-  intent = in        
+  intent = in
+[csw_f107]
+  standard_name = current_timestep_value_of_10_7cm_solar_flux
+  units = W m-2
+  type = real 
+  kind = kind_phys
+  dimensions = ()
+  intent = inout
+[csw_f107d]
+  standard_name = current_timestep_value_of_41_day_averaged_10_7cm_solar_flux
+  units = W m-2
+  type = real
+  kind = kind_phys
+  dimensions = ()
+  intent = inout 
+[csw_kp]
+  standard_name = current_timestep_value_of_planetary_3_hour_geomagnetic_activity
+  units = count
+  type = real 
+  kind = kind_phys
+  dimensions = ()
+  intent = inout
+[csw_kpa]
+  standard_name = current_timestep_value_of_average_of_the_previous_8_planetary_3_hour_geomagnetic_activity
+  units = count 
+  type = real 
+  kind = kind_phys
+  dimensions = ()
+  intent = inout
+[csw_ap]
+  standard_name = current_timestep_value_of_planetary_3_hour_geomagnetic_activity_index 
+  units = count
+  type = real 
+  kind = kind_phys
+  dimensions = ()
+  intent = inout
+[csw_apa]
+  standard_name = current_timestep_value_of_average_of_the_previous_8_planetary_3_hour_geomagnetic_activity_indices
+  units = count
+  type = real 
+  kind = kind_phys
+  dimensions = ()
+  intent = inout
+[csw_nhp]
+  standard_name = current_timestep_value_of_northern_hemispheric_auroral_power
+  units = GW
+  type = real 
+  kind = kind_phys
+  dimensions = ()
+  intent = inout
+[csw_nhpi]
+  standard_name = current_timestep_value_of_northern_hemispheric_auroral_power_index
+  units = count
+  type = real
+  kind = kind_phys
+  dimensions = ()
+  intent = inout
+[csw_shp]
+  standard_name = current_timestep_value_of_southern_hemispheric_auroral_power
+  units = GW
+  type = real 
+  kind = kind_phys
+  dimensions = ()
+  intent = inout
+[csw_shpi]
+  standard_name = current_timestep_value_of_southern_hemispheric_auroral_power_index
+  units = count
+  type = real
+  kind = kind_phys
+  dimensions = ()
+  intent = inout
+[csw_den]
+  standard_name = current_timestep_value_of_solar_wind_density
+  units = cm-3
+  type = real
+  kind = kind_phys
+  dimensions = ()
+  intent = inout
+[csw_ang]
+  standard_name = current_timestep_value_of_solar_wind_interplanetary_magnetic_field_angle_arctan_BzBy
+  units = degree
+  type = real 
+  kind = kind_phys
+  dimensions = ()
+  intent = inout
+[csw_bz]
+  standard_name = current_timestep_value_of_northward_solar_wind_interplanetary_magnetic_field
+  units = nT
+  type = real 
+  kind = kind_phys
+  dimensions = ()
+  intent = inout
+[csw_bt]
+  standard_name = current_timestep_value_of_total_solar_wind_interplanetary_magnetic_field
+  units = nT
+  type = real
+  kind = kind_phys
+  dimensions = ()
+  intent = inout
+[csw_vel]
+  standard_name = current_timestep_value_of_Earthward_solar_wind_velocity
+  units = km s-1
+  type = real 
+  kind = kind_phys
+  dimensions = ()
+  intent = inout
+[csw_time]
+  standard_name = current_value_of_time
+  units = seconds
+  type = real 
+  dimensions = ()
+  intent = inout  
+[sw_ktprev]
+  standard_name = previous_time_step_number
+  units = count
+  type = integer
+  dimensions = ()         
 [cldfra]
   standard_name = instantaneous_3d_cloud_fraction
   long_name = instantaneous 3D cloud fraction for all MPs
