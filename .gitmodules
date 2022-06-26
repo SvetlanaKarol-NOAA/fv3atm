@@ -9,7 +9,7 @@
 [submodule "ccpp/physics"]
   path = ccpp/physics
   url = https://github.com/SvetlanaKarol-NOAA/ccpp-physics
-  branch = main
+  branch = wamphys
 [submodule "upp"]
   path = upp
   url = https://github.com/NOAA-EMC/UPP
