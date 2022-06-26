@@ -37,7 +37,7 @@
       <scheme>GFS_suite_interstitial_2</scheme>
     </subcycle>
     <!-- Surface iteration loop -->
-    <subcycle loop="2">
+    <subcycle loop="2">      
       <scheme>sfc_diff</scheme>
       <scheme>GFS_surface_loop_control_part1</scheme>
       <scheme>sfc_ocean</scheme>
@@ -57,6 +57,8 @@
       <scheme>GFS_GWD_generic_pre</scheme>
       <scheme>cires_ugwp</scheme>
       <scheme>cires_ugwp_post</scheme>
+      <scheme>wamphys</scheme>
+      <scheme>wamphys_post</scheme>      
       <scheme>GFS_GWD_generic_post</scheme>
       <scheme>GFS_suite_stateout_update</scheme>
       <scheme>ozphys_2015</scheme>
